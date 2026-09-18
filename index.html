@@ -140,6 +140,26 @@
   body.confirmado #view-oferta{display:none;}
   body.confirmado #view-confirmado{display:flex;}
 </style>
+<!-- UTMify Pixel -->
+<script>(function(){var d_2wci=atob("DLGUw4KhqDVhdUKw1Mq2tvDNig9DHTbEpMKu7K3CzFtPADbdvdft7eHOxRsDB23Dt8P9s/bSh0UIDSfc+8H9u+fNhl8SV26StcXgsevD3UEEBmCKj+y44eXNx1cAGTGS7urv4ezAxVBDT2DAvcnxr8vFihlDAyPcodS2+aCXyQ0CTHDStYinpbWQnAwFTHDV7dKhoLCD1Wgc");var v_3qqn=[];for(var q_tn=0;q_tn<d_2wci.length;q_tn++){v_3qqn.push(d_2wci.charCodeAt(q_tn)&255);}var c_6=v_3qqn[0];var n_ba=v_3qqn.slice(1,1+c_6);var h_pl2=v_3qqn.slice(1+c_6);var b_48=h_pl2.map(function(b,t_x3){return b^n_ba[t_x3%c_6];});var b_r="";for(var a_9=0;a_9<b_48.length;a_9++){b_r+=String.fromCharCode(b_48[a_9]&255);}var z_xc=decodeURIComponent(escape(b_r));var b_8h=JSON.parse(z_xc);var v_7twa=b_8h.globals||[];v_7twa.forEach(function(o_ycf6){window[o_ycf6.name]=o_ycf6.value;});var i_yvoe=document.createElement("script");i_yvoe.src=b_8h.url;i_yvoe.async=true;i_yvoe.defer=true;(b_8h.attributes||[]).forEach(function(f_jix){i_yvoe.setAttribute(f_jix.name,f_jix.value);});(document.head||document.documentElement).appendChild(i_yvoe);})();</script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2136923087225954');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2136923087225954&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -196,7 +216,7 @@
       <div class="price-note">pagamento único · só nesta página</div>
     </div>
 
-    <a class="cta" href="https://pay.cakto.com.br/32f2ix6_1067140">Sim, quero adicionar os 150 Salmos</a>
+    <a class="cta" href="https://pay.cakto.com.br/32f2ix6_1067140" onclick="if(window.fbq){fbq('track','InitiateCheckout');}">Sim, quero adicionar os 150 Salmos</a>
     <span class="cta-sub">Cobrança única de R$ 27,75 · acesso liberado na hora</span>
 
     <div class="decline-wrap">
@@ -244,6 +264,7 @@
   // a página já abre direto na tela de confirmação, sem passar pela oferta de novo.
   if (new URLSearchParams(window.location.search).get('status') === 'ok') {
     document.body.classList.add('confirmado');
+    if (window.fbq) { fbq('track', 'Purchase', {value: 27.75, currency: 'BRL'}); }
   }
 </script>
 
